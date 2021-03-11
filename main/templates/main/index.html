@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/global_style.css' %}">
+
+<h1>| Soldier-Link |</h1>
+
+<h3>현재익의 전역까지 남은 시간은</h3>
+
+<div id="RemainingTime" class='progress'></div>
+
+<h3>로, 국방의 의무를</h3>
+
+<div id="TimePercentage" class='progress'></div>
+
+<h3>완수하였습니다.</h3>
+
+<script src="{% static 'js/calculate_time.js' %}"></script>
+
+<a href="/writer"><button>인편 쓰기</button></a>
+
+<footer>
+    Soldier-Link by <a href="https://syphon.tistory.com/" target="_blank">Syphon</a>
+    <br>
+    <br>
+    Credits to
+    <a href="https://calofmijuck.tistory.com/18?fbclid=IwAR2nzaL
+        KPc6vfLk_Gj8k1fEPFTgfsmiFai1XnDZTezLEJJh9YTKwt5E1LwE" target="_blank">zxcvber</a> for inspiration.
+</footer>

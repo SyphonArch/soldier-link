@@ -1,0 +1,85 @@
+html {
+    text-align: center;
+    color: #3f0000;
+    font-size: 18px;
+}
+
+body {
+    height: 100%;
+}
+
+.senderBox {
+    height: 50px;
+    width: 200px;
+    resize: none;
+    overflow: hidden;
+}
+
+.subjectBox {
+    height: 50px;
+    width: 500px;
+    resize: none;
+    overflow: hidden;
+}
+
+textarea {
+    width: 100%;
+    max-width: 1000px;
+    height: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #3f0000;
+    outline: none;
+    border-radius: 2px;
+    font-size: 20px;
+    resize: vertical;
+}
+
+textarea:focus {
+    border: 2px solid brown;
+}
+
+
+input {
+    border: 6px solid #3f0000;
+    background-color: brown;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+button {
+    border: 6px solid #3f0000;
+    background-color: brown;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    margin: 4px 2px;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+button.backButton {
+    border: 6px solid #15123d;
+    background-color: #3944bc;
+}
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.progress{
+    top: 50%;
+    left: 50%;
+    color: brown;
+    font-size: 60px;
+    letter-spacing: 7px;
+}
+
+a {
+    color: #3f0000;
+}

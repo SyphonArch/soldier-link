@@ -1,0 +1,35 @@
+<!-- index.html -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/global_style.css' %}">
+<body>
+    <a href="/"><button class="backButton">홈으로</button></a>
+    <h1>| 인편 쓰기 |</h1>
+
+
+    <form method="post">
+    {% csrf_token %}
+
+    <h2>작성자</h2>
+    <textarea class="senderBox" type="text" name="sender">{{ sender }}</textarea><br>
+
+    <h2>제목</h2>
+    <textarea class="subjectBox" type="text" name="subject">{{ title }}</textarea><br>
+
+    <h2>내용 (1500자 이내)</h2>
+    <textarea class="c" type="text" name="content">{{ content }}</textarea><br>
+
+    <br>
+    <input type="submit" value="보내기!">
+    </form>
+
+    {% if error %}<p style="color:red"><strong>{{ error }}</strong></p>{% endif %}
+
+    <footer>
+        Soldier-Link by <a href="https://syphon.tistory.com/" target="_blank">Syphon</a>
+        <br>
+        <br>
+        Credits to
+        <a href="https://calofmijuck.tistory.com/18?fbclid=IwAR2nzaL
+        KPc6vfLk_Gj8k1fEPFTgfsmiFai1XnDZTezLEJJh9YTKwt5E1LwE" target="_blank">zxcvber</a> for inspiration.
+    </footer>
+</body>
