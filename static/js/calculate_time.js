@@ -43,7 +43,7 @@ function getPercentage() {
     var totalTime = 548 * 24 * 3600 * 1000;
     var timeComplete = totalTime - timeLeft;
     var percentage = timeComplete / totalTime * 100;
-    percentage = percentage.toFixed(8);
+    percentage = percentage.toFixed(7);
     var result = percentage + ' %';
     document.getElementById("TimePercentage").innerText = result;
     document.getElementById("TimePercentage").textContent = result;

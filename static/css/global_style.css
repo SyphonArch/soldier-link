@@ -4,10 +4,6 @@ html {
     font-size: 18px;
 }
 
-body {
-    height: 100%;
-}
-
 .senderBox {
     height: 50px;
     width: 200px;
@@ -23,7 +19,7 @@ body {
 }
 
 textarea {
-    width: 100%;
+    width: 95%;
     max-width: 1000px;
     height: 300px;
     padding: 10px;
@@ -69,10 +65,10 @@ button.backButton {
 
 footer {
     padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
 }
 
-.progress{
+.clock {
     top: 50%;
     left: 50%;
     color: brown;
@@ -80,6 +76,21 @@ footer {
     letter-spacing: 7px;
 }
 
+.progress {
+    top: 50%;
+    left: 50%;
+    color: brown;
+    font-size: 60px;
+    font-family: "Courier New", monospace;
+
+}
+
 a {
     color: #3f0000;
+}
+
+div.box {
+    border: 4px solid #3f0000;
+    padding: 10px;
+    margin: 17px 10px;
 }
