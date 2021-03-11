@@ -10,6 +10,9 @@ class Message(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
+        return self.get_header()
+
+    def get_header(self):
         return self.sender + ': ' + self.subject
 
     @classmethod

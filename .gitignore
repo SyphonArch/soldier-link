@@ -138,4 +138,4 @@ dmypy.json
 cython_debug/
 
 .idea
-secret_key.txt
+*.secret

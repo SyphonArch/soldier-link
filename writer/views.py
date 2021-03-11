@@ -3,6 +3,7 @@ from django.template import loader
 from django.http import HttpResponse
 
 from .models import Message
+from . import thecampy_sender
 
 from .writer_enable import enable
 
@@ -34,7 +35,10 @@ def index(request):
         else:
             msg = Message.create(sender, subject, content)
             msg.save()
-            return render(request, 'writer/success.html', {})
+            thecampy_sender.send(msg)
+
+            template = loader.get_template('writer/success.html')
+            return HttpResponse(template.render())
     else:
         template = loader.get_template('writer/unavailable.html')
         return HttpResponse(template.render())
