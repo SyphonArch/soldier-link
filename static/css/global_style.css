@@ -35,18 +35,6 @@ textarea:focus {
     border: 2px solid brown;
 }
 
-
-input {
-    border: 6px solid #3f0000;
-    background-color: brown;
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    margin: 4px 2px;
-    font-size: 120%;
-    cursor: pointer;
-}
-
 button {
     border: 6px solid #3f0000;
     background-color: brown;
@@ -62,6 +50,7 @@ button.backButton {
     border: 6px solid #15123d;
     background-color: #3944bc;
 }
+
 
 footer {
     padding-top: 50px;

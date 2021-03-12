@@ -17,7 +17,7 @@ def send(message):
         add_result = tc.add_soldier(soldier)
         get_result = tc.get_soldier(soldier)
         send_result = tc.send_message(soldier, msg)
-        print(add_result, get_result, send_result)
+        return True
 
     except Exception as p:
-        pass
+        return False

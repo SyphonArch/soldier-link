@@ -8,12 +8,14 @@ class Message(models.Model):
     subject = models.CharField(max_length=100)
     content = models.CharField(max_length=1500)
     timestamp = models.DateTimeField(default=timezone.now)
+    sent = models.BooleanField(default=False)
 
     def __str__(self):
         return self.get_header()
 
     def get_header(self):
-        return self.sender + ': ' + self.subject
+        fail = "[FAIL]" if not self.sent else ''
+        return fail + ' ' + self.sender + ': ' + self.subject
 
     @classmethod
     def create(cls, sender, subject, content):
