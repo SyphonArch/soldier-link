@@ -9,6 +9,7 @@ class Message(models.Model):
     content = models.CharField(max_length=1500)
     timestamp = models.DateTimeField(default=timezone.now)
     sent = models.BooleanField(default=False)
+    send_attempt_over = models.BooleanField(default=False)
 
     def __str__(self):
         return self.get_header()

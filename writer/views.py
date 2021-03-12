@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
+
+import threading
 
 from .models import Message
 from . import thecampy_sender
@@ -39,15 +41,26 @@ def index(request):
         else:
             msg = Message.create(sender, subject, content)
             msg.save()
-            #rslt = thecampy_sender.send(msg)
 
-            template = loader.get_template('writer/loading.html')
-            return HttpResponse(template.render())
+            send_thread = threading.Thread(target=thecampy_sender.send, args=(msg,))
+            send_thread.start()
+
+            return redirect('send-check', message_pk=msg.pk)
     else:
         template = loader.get_template('writer/unavailable.html')
         return HttpResponse(template.render())
 
 
-def send_check(request):
-    template = loader.get_template('writer/success.html')
-    return HttpResponse(template.render())
+def send_check(request, message_pk):
+    msg = Message.objects.get(pk=message_pk)
+    if not msg.send_attempt_over:
+        template = loader.get_template('writer/loading.html')
+        return HttpResponse(template.render())
+    else:
+        if msg.sent:
+            template = loader.get_template('writer/success.html')
+            return HttpResponse(template.render())
+        else:
+            template = loader.get_template('writer/failure.html')
+            return HttpResponse(template.render())
+

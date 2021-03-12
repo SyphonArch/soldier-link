@@ -17,7 +17,13 @@ def send(message):
         add_result = tc.add_soldier(soldier)
         get_result = tc.get_soldier(soldier)
         send_result = tc.send_message(soldier, msg)
+
+        message.sent = True
         return True
 
     except Exception as p:
         return False
+
+    finally:
+        message.send_attempt_over = True
+        message.save()
