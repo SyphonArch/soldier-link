@@ -7,12 +7,13 @@ import threading
 from .models import Message
 from . import thecampy_sender
 
-from .writer_enable import enable
+from .writer_enable import mode
+assert mode in (0, 1, 2)
 
 
 # Create your views here.
 def index(request):
-    if enable:
+    if mode == 1:
         if request.method == "GET":
             return render(request, 'writer/index.html', {})
 
@@ -46,9 +47,15 @@ def index(request):
             send_thread.start()
 
             return redirect('send-check', message_pk=msg.pk)
-    else:
-        template = loader.get_template('writer/unavailable.html')
+    elif mode == 0:
+        template = loader.get_template('writer/unavailable_pre.html')
         return HttpResponse(template.render())
+    elif mode == 2:
+        template = loader.get_template('writer/unavailable_post.html')
+        return HttpResponse(template.render())
+    else:
+        raise ValueError("Invalid writer mode. Check writer_enable.py")
+
 
 
 def send_check(request, message_pk):
