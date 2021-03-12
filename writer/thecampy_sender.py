@@ -14,9 +14,10 @@ def send(message):
         tc = thecampy.client()
         tc.login(user_id, user_pw)
 
-        tc.add_soldier(soldier)
-        tc.get_soldier(soldier)
-        tc.send_message(soldier, msg)
+        add_result = tc.add_soldier(soldier)
+        get_result = tc.get_soldier(soldier)
+        send_result = tc.send_message(soldier, msg)
+        print(add_result, get_result, send_result)
 
     except Exception as p:
         pass
