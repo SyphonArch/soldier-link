@@ -80,7 +80,8 @@ footer {
     top: 50%;
     left: 50%;
     color: brown;
-    font-size: 60px;
+    font-size: 80px;
+    font-family: monospace;
 }
 
 a {
