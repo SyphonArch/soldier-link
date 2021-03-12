@@ -26,7 +26,7 @@ with open('secret_key.secret', 'r') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '54.180.144.73']
+ALLOWED_HOSTS = ['127.0.0.1', '54.180.144.73', 'ec2-54-180-144-73.ap-northeast-2.compute.amazonaws.com']
 
 # Application definition
 
