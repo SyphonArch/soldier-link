@@ -32,6 +32,8 @@ def index(request):
             message_dict['error'] = "내용을 입력해 주세요!"
         elif len(content) > 1500:
             message_dict['error'] = "1500자 이하로 작성해 주세요!"
+        elif content.count('\n') > 24:
+            message_dict['error'] = "25문단 이하로 작성해 주세요!"
         elif len(sender) > 20:
             message_dict['error'] = '작성자는 20자 이내로 입력해 주세요!'
         elif len(subject) > 100:
