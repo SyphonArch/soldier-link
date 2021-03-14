@@ -6,6 +6,7 @@ import threading
 
 from .models import Message
 from . import thecampy_sender
+from . import limit_checker
 
 from .writer_enable import mode
 assert mode in (0, 1, 2)
@@ -14,8 +15,12 @@ assert mode in (0, 1, 2)
 # Create your views here.
 def index(request):
     if mode == 1:
+        if not limit_checker.check():
+            template = loader.get_template('writer/unavailable_full.html')
+            return HttpResponse(template.render())
         if request.method == "GET":
-            return render(request, 'writer/index.html', {})
+            if limit_checker.check():
+                return render(request, 'writer/index.html', {})
 
         req = request.POST
         subject = req['subject']
