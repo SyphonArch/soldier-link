@@ -15,11 +15,11 @@ assert mode in (0, 1, 2)
 # Create your views here.
 def index(request):
     if mode == 1:
-        if not limit_checker.check():
-            template = loader.get_template('writer/unavailable_full.html')
-            return HttpResponse(template.render())
         if request.method == "GET":
-            if limit_checker.check():
+            if not limit_checker.check():
+                template = loader.get_template('writer/unavailable_full.html')
+                return HttpResponse(template.render())
+            else:
                 return render(request, 'writer/index.html', {})
 
         req = request.POST
@@ -29,6 +29,8 @@ def index(request):
         message_dict = {'title': subject, 'sender': sender, 'content': content}
 
         # Error handling
+        if not limit_checker.check():
+            message_dict['error'] = '1일 발송한도(10건)을 초과하였습니다.'
         if len(sender) == 0:
             message_dict['error'] = "작성자를 입력해 주세요!"
         elif len(subject) == 0:
