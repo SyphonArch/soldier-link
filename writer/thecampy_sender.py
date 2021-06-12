@@ -1,6 +1,6 @@
 import thecampy
 
-soldier = thecampy.Soldier('현재익', 2000_03_14, 2021_03_29)
+soldier = thecampy.Soldier('현재익', 2000_03_14, 2021_03_29, '육군훈련소')
 user_id = 'jake.hyun@hotmail.com'
 with open('thecampy_pw.secret', 'r') as f:
     user_pw = f.read().strip()
@@ -14,8 +14,7 @@ def send(message):
         tc = thecampy.client()
         tc.login(user_id, user_pw)
 
-        add_result = tc.add_soldier(soldier)
-        get_result = tc.get_soldier(soldier)
+        tc.get_soldier(soldier)
         send_result = tc.send_message(soldier, msg)
 
         message.sent = True

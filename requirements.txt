@@ -6,6 +6,6 @@ idna==2.10
 pytz==2021.1
 requests==2.25.1
 sqlparse==0.4.1
-thecampy==1.0.7
+thecampy==2.0.0
 urllib3==1.26.3
 whitenoise==5.2.0
