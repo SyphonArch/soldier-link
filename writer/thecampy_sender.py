@@ -9,6 +9,8 @@ with open('thecampy_pw.secret', 'r') as f:
 def send(message):
     try:
         title, content = message.get_header(), message.content
+        content = '<p>' + content.replace('\n', '</p><p>') + '</p>'
+        content = content.replace('<p></p>', '<p>&nbsp</p>')
 
         msg = thecampy.Message(title, content)
         tc = thecampy.client()
